@@ -44,14 +44,22 @@ class MovieListSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "duration", "image"]
 
 
-class MovieDetailSerializer(MovieSerializer):
+class MovieDetailSerializer(serializers.ModelSerializer):
     genres = GenreSerializer(many=True, read_only=True)
     actors = ActorSerializer(many=True, read_only=True)
-    image = serializers.ImageField(read_only=True)
 
     class Meta:
         model = Movie
-        fields = ("id", "title", "description", "duration", "genres", "actors")
+        fields = (
+            "id",
+            "title",
+            "description",
+            "duration",
+            "genres",
+            "actors",
+            "image",
+        )
+
 
 
 class MovieSessionSerializer(serializers.ModelSerializer):
