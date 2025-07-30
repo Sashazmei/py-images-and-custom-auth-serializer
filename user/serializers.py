@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 from cinema.models import Movie
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
@@ -20,7 +21,8 @@ class UserSerializer(serializers.ModelSerializer):
             user.save()
         return user
 
+
 class MovieImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['image']
+        fields = ["image"]

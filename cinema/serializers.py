@@ -44,7 +44,6 @@ class MovieListSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "duration", "image"]
 
 
-
 class MovieDetailSerializer(MovieSerializer):
     genres = GenreSerializer(many=True, read_only=True)
     actors = ActorSerializer(many=True, read_only=True)
@@ -73,7 +72,6 @@ class MovieSessionListSerializer(serializers.ModelSerializer):
         if obj.movie.image and request:
             return request.build_absolute_uri(obj.movie.image.url)
         return None
-
 
 
 class TicketSerializer(serializers.ModelSerializer):
@@ -130,7 +128,8 @@ class OrderSerializer(serializers.ModelSerializer):
 class OrderListSerializer(OrderSerializer):
     tickets = TicketListSerializer(many=True, read_only=True)
 
+
 class MovieImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ['image']
+        fields = ["image"]

@@ -6,7 +6,6 @@ import uuid
 from django.utils.text import slugify
 
 
-
 class CinemaHall(models.Model):
     name = models.CharField(max_length=255)
     rows = models.IntegerField()
@@ -37,6 +36,7 @@ class Actor(models.Model):
     @property
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
+
 
 def movie_image_file_path(instance, filename):
     ext = os.path.splitext(filename)[1]
